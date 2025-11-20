@@ -1,5 +1,6 @@
 Spaceship bob;
 Star[] stars;
+ArrayList <Asteroid> sue;
 boolean wHeld = false;
 boolean aHeld = false;
 boolean dHeld = false;
@@ -13,6 +14,10 @@ public void setup()
   for (int i = 0; i < stars.length; i++) {
     stars[i] = new Star();
   }
+  sue = new ArrayList <Asteroid> ();
+  for (int i = 0; i < 18; i++) {
+    sue.add(i, new Asteroid());
+  }
 }
 public void draw() 
 {
@@ -20,6 +25,15 @@ public void draw()
   for (int i = 0; i < stars.length; i++) {
     stars[i].show();
   }
+  for (int i = 0; i < sue.size(); i++) {
+    sue.get(i).show();
+    sue.get(i).move();
+    if (dist((float)sue.get(i).getmyCenterX(),(float)sue.get(i).getmyCenterY(),(float)bob.getmyCenterX(),(float)bob.getmyCenterY()) <=25)
+    {
+      sue.remove(i);
+    }
+  }
+  
   if (aHeld) {
     bob.turn(-2);
   }
