@@ -98,7 +98,7 @@ public void keyPressed() {
   }
   if (key == ' ') {
     spaceHeld = true;
-    pew.add(new Bullet(bob));
+    //pew.add(new Bullet(bob));
   }
 }
 public void keyReleased() {
