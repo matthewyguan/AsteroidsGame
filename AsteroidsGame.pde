@@ -21,7 +21,7 @@ public void setup()
   for (int i = 0; i < 18; i++) {
     sue.add(i, new Asteroid());
   }
-  pew = new Bullet();
+  pew = new Bullet(bob);
 }
 public void draw() 
 {
