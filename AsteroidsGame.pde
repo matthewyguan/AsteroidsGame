@@ -8,7 +8,7 @@ boolean sHeld = false;
 boolean RC = false;
 boolean spaceHeld = false;
 //ArrayList<Bullet> pew = new ArrayList<Bullet> ();
-Bullet pew;
+//Bullet pew;
 public void setup() 
 {
   size(1000,1000);
@@ -21,7 +21,7 @@ public void setup()
   for (int i = 0; i < 18; i++) {
     sue.add(i, new Asteroid());
   }
-  pew = new Bullet(bob);
+  //pew = new Bullet(bob);
 }
 public void draw() 
 {
@@ -52,7 +52,7 @@ public void draw()
     //}
     
   //}
-  pew.show();
+  //pew.show();
   
   if (aHeld) {
     bob.turn(-2);
