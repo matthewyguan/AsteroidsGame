@@ -7,7 +7,7 @@ boolean dHeld = false;
 boolean sHeld = false;
 boolean RC = false;
 boolean spaceHeld = false;
-ArrayList <Bullet> pew;
+ArrayList<Bullet> pew;
 public void setup() 
 {
   size(1000,1000);
@@ -20,7 +20,7 @@ public void setup()
   for (int i = 0; i < 18; i++) {
     sue.add(i, new Asteroid());
   }
-  pew = new ArrayList <Bullet> ();
+  pew = new ArrayList<Bullet> ();
 }
 public void draw() 
 {
