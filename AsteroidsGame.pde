@@ -74,7 +74,6 @@ public void draw()
       pew.get(i).show();
       pew.get(i).move();
       pew.get(i).accelerate(.15);
-      System.out.println(bob.getmyCenterX());
   }
   bob.myXspeed *= 0.99;
   bob.myYspeed *= 0.99;
