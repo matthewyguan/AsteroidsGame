@@ -7,8 +7,7 @@ boolean dHeld = false;
 boolean sHeld = false;
 boolean RC = false;
 boolean spaceHeld = false;
-//ArrayList<Bullet> pew = new ArrayList<Bullet> ();
-//Bullet pew;
+ArrayList <Bullet> pew;
 public void setup() 
 {
   size(1000,1000);
@@ -21,7 +20,7 @@ public void setup()
   for (int i = 0; i < 18; i++) {
     sue.add(i, new Asteroid());
   }
-  //pew = new Bullet(bob);
+  pew = new ArrayList <Bullet> ();
 }
 public void draw() 
 {
@@ -37,22 +36,22 @@ public void draw()
       sue.remove(i);
       continue;
     }
-    //for (int x = 0; x < pew.size(); x++) {
-      //if ((sue.size() > 0)&&(dist((float)sue.get(i).getmyCenterX(),(float)sue.get(i).getmyCenterY(),(float)pew.get(x).getmyCenterX(),(float)pew.get(x).getmyCenterY()) <=25)) {
-        //sue.remove(i);
-        //pew.remove(x);
-        //break;
-      //}
-    //}
+    for (int x = 0; x < pew.size(); x++) {
+      if ((sue.size() > 0)&&(dist((float)sue.get(i).getmyCenterX(),(float)sue.get(i).getmyCenterY(),(float)pew.get(x).getmyCenterX(),(float)pew.get(x).getmyCenterY()) <=25)) {
+        sue.remove(i);
+        pew.remove(x);
+        break;
+      }
+    }
   }
-  //for (int x = 0; x<pew.size(); x++) {
-    //if (dist((float)bob.getmyCenterX(),(float)bob.getmyCenterY(),(float)pew.get(x).getmyCenterX(),(float)pew.get(x).getmyCenterY()) >300) {
-      //pew.remove(x);
-      //x--;
-    //}
+  for (int x = 0; x<pew.size(); x++) {
+    if (dist((float)bob.getmyCenterX(),(float)bob.getmyCenterY(),(float)pew.get(x).getmyCenterX(),(float)pew.get(x).getmyCenterY()) >300) {
+      pew.remove(x);
+      x--;
+    }
     
-  //}
-  //pew.show();
+  }
+  
   
   if (aHeld) {
     bob.turn(-2);
@@ -62,17 +61,20 @@ public void draw()
   }
   if (wHeld) {
     bob.accelerate(0.05);
-    //for (int i = 0; i < pew.size(); i++) {
-      //pew.get(i).accelerate(.15);
+    for (int i = 0; i < pew.size(); i++) {
+      pew.get(i).accelerate(.15);
     }
   }
   if (sHeld) {
     bob.accelerate(-0.05);
   }
-  //for (int i = pew.size() - 1; i >= 0; i--) {
-      //pew.get(i).show();
-      //pew.get(i).move();
-      //pew.get(i).accelerate(.15);
+  //if (spaceHeld) {
+  //}
+  for (int i = pew.size() - 1; i >= 0; i--) {
+      pew.get(i).show();
+      pew.get(i).move();
+      pew.get(i).accelerate(.15);
+      System.out.println(bob.getmyCenterX());
   }
   bob.myXspeed *= 0.99;
   bob.myYspeed *= 0.99;
@@ -98,7 +100,7 @@ public void keyPressed() {
   }
   if (key == ' ') {
     spaceHeld = true;
-    //pew.add(new Bullet(bob));
+    pew.add(new Bullet(bob));
   }
 }
 public void keyReleased() {
